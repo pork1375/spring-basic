@@ -5,7 +5,8 @@
     <!-- 게시글 목록 -->
     <select id="selectNoticeList" resultType="com.example.springbasic.notice.dto.response.NoticeResponse">
         select
-             notice_id
+             RANK() over (ORDER BY notice_id desc) as rankNo
+            ,notice_id
             ,title
             ,content
             ,create_id
