@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>게시판 목록</title>
 </head>
 <style>
     table { border: 1px solid black; }
@@ -24,7 +24,7 @@
         <c:forEach var = "list" items = "${notices}">
             <tr>
                 <td>${list.rankNo}</td>
-                <td>${list.title}</td>
+                <td onclick="detailMove('${list.noticeId}');">${list.title}</td>
                 <td>${list.createId}</td>
                 <td>${list.createAt}</td>
             </tr>
@@ -34,3 +34,11 @@
 
 </body>
 </html>
+<script>
+
+    // 상세화면 이동
+    function detailMove(noticeId) {
+        location.href = "notice/notice-detail/" + noticeId;
+    }
+
+</script>

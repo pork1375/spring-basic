@@ -10,4 +10,6 @@ public interface NoticeMapper {
 
     List<NoticeResponse> selectNoticeList();
 
+    NoticeResponse selectOneNotice(int noticeId);
+
 }

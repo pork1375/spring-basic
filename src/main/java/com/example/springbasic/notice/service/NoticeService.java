@@ -18,4 +18,8 @@ public class NoticeService {
         return noticeMapper.selectNoticeList();
     }
 
+    public NoticeResponse selectOneNotice(int noticeId) {
+        return noticeMapper.selectOneNotice(noticeId);
+    }
+
 }

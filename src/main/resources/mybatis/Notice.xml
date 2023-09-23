@@ -14,4 +14,18 @@
         from study.notice
     </select>
 
+    <!-- 게시글 단건 조회 -->
+    <select id="selectOneNotice" parameterType="int"
+            resultType="com.example.springbasic.notice.dto.response.NoticeResponse">
+        select
+              notice_id
+             ,title
+             ,content
+             ,create_id
+             ,create_at
+        from study.notice
+        where 1=1
+          and notice_id = #{noticeId}
+    </select>
+
 </mapper>
