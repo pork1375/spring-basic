@@ -1,14 +1,12 @@
 package com.example.springbasic.notice.controller;
 
+import com.example.springbasic.notice.dto.request.NoticeRequest;
 import com.example.springbasic.notice.dto.response.NoticeResponse;
 import com.example.springbasic.notice.service.NoticeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -39,6 +37,14 @@ public class NoticeController {
         model.addAttribute("notice", noticeResponse);
 
         return "notice/noticeDetail";
+    }
+
+    /** 게시판 수정 */
+    @RequestMapping(value = "/detail", method = RequestMethod.POST)
+    @ResponseBody
+    public int updateDetail(@RequestBody NoticeRequest noticeRequest) {
+        System.out.println("updateDetail noticeRequest ==> " + noticeRequest);
+        return noticeService.updateDetail(noticeRequest);
     }
 
 }

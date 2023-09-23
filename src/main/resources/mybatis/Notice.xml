@@ -28,4 +28,15 @@
           and notice_id = #{noticeId}
     </select>
 
+    <!-- 게시판 수정 -->
+    <update id="updateDetail" parameterType="com.example.springbasic.notice.dto.request.NoticeRequest">
+        update study.notice
+        set
+            title = #{title}
+            ,content = #{content}
+            ,update_at = CURRENT_TIMESTAMP()
+        where 1=1
+            and notice_id = #{noticeId}
+    </update>
+
 </mapper>
