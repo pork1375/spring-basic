@@ -24,7 +24,8 @@
         </tr>
         <tr>
             <td colspan="2" align="center">
-                <button type="button" onclick="noticeDetail();">수정</button>
+                <button type="button" onclick="deleteNotice();">삭제</button>
+                <button type="button" onclick="updateNotice();">수정</button>
                 <button type="button" onclick="noticeListMove();">목록</button>
             </td>
         </tr>
@@ -40,7 +41,7 @@
     }
 
     // 수정
-    function noticeDetail() {
+    function updateNotice() {
 
         const reqData = {
             noticeId : '${notice.noticeId}',
@@ -67,7 +68,26 @@
                 console.log(err);
             }
         });
+    }
 
+    // 삭제
+    function deleteNotice() {
+
+        $.ajax({
+            type: 'DELETE',
+            url: '/notice/delete/' + '${notice.noticeId}',
+            success: function (resData) {
+                console.log(resData)
+                if (resData === 1) {
+                    alert("삭제성공");
+                    location.href = "/notice";
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error(error);
+                // 에러 처리
+            }
+        });
 
     }
 

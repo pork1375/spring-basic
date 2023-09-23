@@ -47,4 +47,12 @@ public class NoticeController {
         return noticeService.updateDetail(noticeRequest);
     }
 
+    /** 게시판 삭제 */
+    @DeleteMapping("/delete/{noticeId}")
+    @ResponseBody
+    public int deleteNotice(@PathVariable("noticeId") int noticeId) {
+        System.out.println("deleteNotice noticeId ==> " + noticeId);
+        return noticeService.deleteNotice(noticeId);
+    }
+
 }

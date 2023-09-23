@@ -27,4 +27,8 @@ public class NoticeService {
         return noticeMapper.updateDetail(request);
     }
 
+    public int deleteNotice(int noticeId) {
+        return noticeMapper.deleteNotice(noticeId);
+    }
+
 }
