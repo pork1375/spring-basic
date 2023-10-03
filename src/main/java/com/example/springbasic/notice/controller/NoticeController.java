@@ -28,7 +28,7 @@ public class NoticeController {
         return "notice/notice";
     }
 
-    /** 게시판 상세 */
+    /** 게시판 상세 화면 */
     @RequestMapping(value = "/notice-detail/{noticeId}", method = RequestMethod.GET)
     public String noticeDetail(@PathVariable("noticeId") int noticeId, Model model) {
 
@@ -53,6 +53,20 @@ public class NoticeController {
     public int deleteNotice(@PathVariable("noticeId") int noticeId) {
         System.out.println("deleteNotice noticeId ==> " + noticeId);
         return noticeService.deleteNotice(noticeId);
+    }
+
+    /** 게시판 등록 화면 */
+    @RequestMapping(value = "/insert-view", method = RequestMethod.GET)
+    public String noticeInsertView() {
+        return "notice/noticeInsert";
+    }
+
+    /** 게시판 등록 */
+    @RequestMapping(value = "/insert", method = RequestMethod.POST)
+    @ResponseBody
+    public int insertNotice(@RequestBody NoticeRequest noticeRequest) {
+        System.out.println("insertNotice noticeRequest ==> " + noticeRequest);
+        return noticeService.insertNotice(noticeRequest);
     }
 
 }

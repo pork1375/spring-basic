@@ -44,4 +44,10 @@
         delete from study.notice where notice_id = #{noticeId}
     </delete>
 
+    <!-- 게시판 등록 -->
+    <insert id="insertNotice" parameterType="com.example.springbasic.notice.dto.request.NoticeRequest">
+        INSERT INTO study.notice (title, content, create_id, create_at)
+        VALUES(#{title}, #{content}, #{createId}, CURRENT_TIMESTAMP);
+    </insert>
+
 </mapper>

@@ -17,4 +17,6 @@ public interface NoticeMapper {
 
     int deleteNotice(int noticeId);
 
+    int insertNotice(NoticeRequest request);
+
 }
